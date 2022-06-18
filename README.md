@@ -17,3 +17,7 @@ pip install -r requirements.txt
 在 HoshinoBot\hoshino\config\bot.py 文件的 MODULES_ON 加入 'Daily_News'
 
 然后重启 HoshinoBot
+
+**注：本插件使用的API于每日凌晨一点更新，请于这个点后使用**
+
+**数据来源:澎湃、人民日报、腾讯新闻、网易新闻、新华网、中国新闻网；**
