@@ -14,4 +14,5 @@ pip install -r requirements.txt
 
 3.启用模块
 在 HoshinoBot\hoshino\config\bot.py 文件的 MODULES_ON 加入 'Daily_News'
+
 然后重启 HoshinoBot
