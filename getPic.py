@@ -51,11 +51,9 @@ async def Daily_News(bot, ev:CQEvent):
     image_path = os.path.join(os.path.dirname(__file__),'imgs/',tdimg)
     print (image_path)
     try:
-        await bot.send(ev, f'[CQ:image,file=file:///{image_path}]')
-        time.sleep(2)
-        await bot.send(ev,'数据来源:澎湃、人民日报、腾讯新闻、网易新闻、新华网、中国新闻网；每日凌晨1时后更新')
-    except:
         download_image()
         await bot.send(ev, f'[CQ:image,file=file:///{image_path}]')
         time.sleep(2)
         await bot.send(ev,'数据来源:澎湃、人民日报、腾讯新闻、网易新闻、新华网、中国新闻网；每日凌晨1时后更新')
+    except:
+        await bot.send(ev,'获取失败，请重试或联系管理员')
