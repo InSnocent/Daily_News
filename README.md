@@ -18,6 +18,8 @@ pip install -r requirements.txt
 
 然后重启 HoshinoBot
 
+触发关键词：'今日新闻','每日新闻','新闻60秒','新闻60s'
+
 ## 其他
 **注：本插件使用的API于每日凌晨一点更新，请于这个点后使用**
 
