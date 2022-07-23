@@ -47,7 +47,7 @@ sv = Service('Daily_News')
 
 @sv.on_fullmatch('今日新闻','每日新闻','新闻60秒','新闻60s')
 async def Daily_News(bot, ev:CQEvent):
-    tdimg = 'today' + ".png" 
+    tdimg = 'today' + ".jpg" 
     image_path = os.path.join(os.path.dirname(__file__),'imgs/',tdimg)
     print (image_path)
     try:
