@@ -7,12 +7,14 @@ import urllib.request
 from hoshino import Service
 from hoshino.typing import CQEvent
 
-api = "https://v2.alapi.cn/api/zaobao?token=NQgxHE5lLK9eIOdm&format=image"
+api = "http://bjb.yunwj.top/php/tp/lj.php"
 file_path = './hoshino/modules/Daily_News/imgs'
 file_me = '60s'
 
 def download_image():
-    image_url = api
+    response = requests.get(api)
+    loads = json.loads(response.text)
+    image_url = loads.get('tp')
     print('正在下载资源')
     def callback(a,b,c):  
         '''
@@ -29,7 +31,7 @@ def download_image():
             os.makedirs(file_path)            
         #下载保存图片
         file_suffix = os.path.splitext(image_url)[1]
-        file_name = '{}{}{}{}'.format(file_path,os.sep,'today','.png') 
+        file_name = '{}{}{}{}'.format(file_path,os.sep,'today',file_suffix) 
         urllib.request.urlretrieve(image_url,filename=file_name,reporthook=callback) 
         print("Download Successful！")
     except IOError as e:
