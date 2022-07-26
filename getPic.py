@@ -7,12 +7,12 @@ import urllib.request
 from hoshino import Service
 from hoshino.typing import CQEvent
 
-api = "http://bjb.yunwj.top/php/tp/lj.php"
+api = 'https://api.vvhan.com/api/60s'
 file_path = './hoshino/modules/Daily_News/imgs'
 file_me = '60s'
 
 def download_image():
-    image_url = 'https://api.vvhan.com/api/60s'
+    image_url = api
     print('正在下载资源')
     def callback(a,b,c):  
         '''
