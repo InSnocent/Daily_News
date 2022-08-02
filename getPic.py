@@ -20,7 +20,7 @@ def download_image():
         #下载保存图片
         #file_suffix = os.path.splitext(image_url)[1]
         file_name = '{}{}{}{}'.format(file_path,os.sep,'today','.png') 
-        urllib.request.urlretrieve(image_url,filename=file_name,reporthook=callback) 
+        urllib.request.urlretrieve(image_url,filename=file_name) 
         print("Download Successful！")
     except IOError as e:
         print("IOError,Please check on")
@@ -33,7 +33,7 @@ if __name__ == '__main__':
 
 sv = Service('Daily_News')
 
-@sv.on_fullmatch('今日新闻','每日新闻','新闻60秒','新闻60s')
+@sv.on_fullmatch(('今日新闻','每日新闻','新闻60秒','新闻60s'))
 async def Daily_News(bot, ev:CQEvent):
     tdimg = 'today' + ".png" 
     image_path = os.path.join(os.path.dirname(__file__),'imgs/',tdimg)
