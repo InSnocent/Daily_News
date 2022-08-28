@@ -7,12 +7,14 @@ import urllib.request
 from hoshino import Service
 from hoshino.typing import CQEvent
 
-api = 'https://api.03c3.cn/zb/'
+api = 'https://api.03c3.cn/zb/api.php'
 file_path = './hoshino/modules/Daily_News/imgs'
 file_me = '60s'
 
 def download_image():
-    image_url = api
+    response = requests.get(api)
+    loads = json.loads(response.text)
+    image_url = loads.get('imageUrl')
     print('正在下载资源')
     try:
         if not os.path.exists(file_path):
