@@ -33,7 +33,7 @@ def download_image():
 if __name__ == '__main__':
     download_image()
 
-sv = Service('Daily_News')
+sv = Service('Daily_News', enable_on_default=False)
 
 @sv.on_fullmatch(('今日新闻','每日新闻','新闻60秒','新闻60s'))
 async def Daily_News(bot, ev:CQEvent):
@@ -47,3 +47,10 @@ async def Daily_News(bot, ev:CQEvent):
         await bot.send(ev,'数据来源:澎湃、人民日报、腾讯新闻、网易新闻、新华网、中国新闻网；每日凌晨1时后更新')
     except:
         await bot.send(ev,'获取失败，请重试或联系管理员')
+
+@sv.scheduled_job('cron', hour='09', minute='30', jitter=50)
+async def autoNews():
+    tdimg = 'today' + ".png"
+    image_path = os.path.join(os.path.dirname(__file__),'imgs/',tdimg)
+    download_image()
+    await sv.broadcast(f'[CQ:image,file=file:///{image_path}]')
